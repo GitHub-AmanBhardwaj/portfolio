@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aman Bhardwaj | AI Engineer & Researcher</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;800&family=Inter:wght@300;400;500&family=Major+Mono+Display&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" href="logo.ico" type="image/x-icon">
+
+    <style>
+        :root {
+            --bg: #000000;
+            --surface: #0a0a0a;
+            --text-main: #ffffff;
+            --text-dim: #999999;
+            --accent-blue: #00d2ff;
+            --accent-purple: #9d50bb;
+            --accent-pink: #ff0055;
+            --border: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        h1 {
+            font-family: 'Major Mono Display', monospace;
+            font-weight: 1000;
+            letter-spacing: 0.05em;
+            font-size: 50px;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h2,
+        h3 {
+            font-family: 'Sora', sans-serif;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        /* --- THIN TRANSPARENT NAV --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 50px 5%;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0);
+            backdrop-filter: blur(1px);
+        }
+
+        .nav-center {
+            display: flex;
+            gap: 15px;
+            margin-right: auto;
+            margin-left: 15px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .nav-center a:hover {
+            color: var(--accent-blue);
+        }
+
+        .contact-btn {
+            background: #fff;
+            color: #000;
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .contact-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        /* --- HERO: SPRAY REVEAL --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-left: 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            width: 45%;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            max-width: 500px;
+        }
+
+        .hero-visual {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 55%;
+            height: 100%;
+            z-index: 5;
+        }
+
+        /* Find this part in your CSS and update it */
+        #revealCanvas {
+            position: absolute;
+            /* Added */
+            top: 0;
+            /* Added */
+            left: 0;
+            /* Added */
+            width: 100%;
+            height: 100%;
+            cursor: crosshair;
+            z-index: 2;
+            /* Added: Must be higher than .hidden-img (which is 1) */
+        }
+
+        .hidden-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            /* Change 'center' to 'center 10%' to pull the image down slightly */
+            /* This ensures the top of the head is visible while maintaining the cover effect */
+            background: url('aman.png') no-repeat center 10% / cover;
+
+            z-index: 1;
+
+            /* Optional: Adds a subtle vignette so the edges blend into the black background */
+            box-shadow: inset 0 0 100px #000;
+        }
+
+        /* --- SECTIONS --- */
+        .section {
+            padding: 80px 5%;
+            border-top: 1px solid var(--border);
+        }
+
+        .section-header {
+            font-size: 3rem;
+            margin-bottom: 80px;
+            letter-spacing: -0.04em;
+        }
+
+        .section-header span {
+            color: var(--text-dim);
+            font-weight: 300;
+        }
+
+        /* --- BENTO PROJECT GRID --- */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+
+        .bento-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 40px;
+            transition: 0.5s;
+            position: relative;
+        }
+
+        .bento-card:hover {
+            border-color: #fff;
+            transform: translateY(-5px);
+        }
+
+        .bento-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .bento-card p {
+            color: var(--text-dim);
+            font-size: 1rem;
+        }
+
+        .span-8 {
+            grid-column: span 8;
+        }
+
+        .span-4 {
+            grid-column: span 4;
+        }
+
+        .span-12 {
+            grid-column: span 12;
+        }
+
+        /* --- LEADERSHIP & IMPACT --- */
+        .leadership-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .leader-item {
+            border-left: 2px solid #222;
+            padding-left: 30px;
+            transition: 0.3s;
+        }
+
+        .leader-item:hover {
+            border-left-color: var(--accent-purple);
+        }
+
+        .leader-item h4 {
+            font-family: 'Sora';
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .leader-item p {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+        }
+
+        /* --- VIBRANT AURORA FOOTER --- */
+        footer {
+            position: relative;
+            padding: 100px 5% 60px;
+            overflow: hidden;
+            border-top: 1px solid var(--border);
+            background: #020202;
+        }
+
+        /* --- VIBRANT SOUNDWAVE FOOTER --- */
+        footer {
+            position: relative;
+            padding: 80px 5% 40px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .footer-waves {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 10% 100%, var(--accent-blue), transparent 40%),
+                radial-gradient(circle at 50% 110%, var(--accent-purple), transparent 40%),
+                radial-gradient(circle at 90% 100%, var(--accent-pink), transparent 60%);
+            opacity: 0.3;
+            filter: blur(80px);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 10;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-col h5 {
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            letter-spacing: 0.2em;
+            margin-bottom: 25px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            font-size: 0.9rem;
+            color: #fff;
+            opacity: 0.6;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--accent-blue);
+        }
+
+        /* --- MOBILE ADAPTATION --- */
+        @media (max-width: 1000px) {
+            .hero {
+                flex-direction: column;
+                height: auto;
+                padding: 160px 5% 80px;
+            }
+
+            .hero-content {
+                width: 100%;
+                margin-bottom: 60px;
+            }
+
+            .hero-visual {
+                position: relative;
+                width: 100%;
+                height: 450px;
+            }
+
+            .span-8,
+            .span-4 {
+                grid-column: span 12;
+            }
+        }
+
+
+
+        /* --- ANIMATED SKILLS MARQUEE (OFFSET + REFLECTION) --- */
+        .skills-wrapper {
+            position: relative;
+            overflow: hidden;
+            padding: 5px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            /* gap between rows */
+        }
+
+        /* edge fade */
+        .skills-wrapper::before,
+        .skills-wrapper::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 140px;
+            height: 100%;
+            z-index: 6;
+            pointer-events: none;
+        }
+
+        .skills-wrapper::before {
+            left: 0;
+            background: linear-gradient(to right, var(--bg), transparent);
+        }
+
+        .skills-wrapper::after {
+            right: 0;
+            background: linear-gradient(to left, var(--bg), transparent);
+        }
+
+        /* rows */
+        .skills-track {
+            display: flex;
+            gap: 22px;
+            width: max-content;
+            animation: scrollSkills 38s linear infinite;
+        }
+
+        /* offset rows */
+        /* .skills-track:nth-child(1) {
+    transform: translateX(0);
+} */
+
+        .skills-track:nth-child(2) {
+            animation-duration: 10s;
+            /* slight speed difference */
+        }
+
+
+
+        /* skill pill */
+        .skills-track span {
+            position: relative;
+            padding: 14px 30px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #0e0e0e, #050505);
+            border: 1px solid var(--border);
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #fff;
+            white-space: nowrap;
+            overflow: hidden;
+            transition: 0.35s ease;
+        }
+
+        /* hover highlight */
+        .skills-track span:hover {
+            color: var(--accent-blue);
+            border-color: var(--accent-blue);
+            transform: scale(1.08);
+        }
+
+        /* --- REFLECTION / LIGHT WIPE --- */
+        .skills-track span::after {
+            content: "";
+            position: absolute;
+            top: -40%;
+            left: -60%;
+            width: 60%;
+            height: 180%;
+            background: linear-gradient(120deg,
+                    transparent 20%,
+                    rgba(255, 255, 255, 0.12),
+                    transparent 80%);
+            transform: translateX(-150%);
+            animation: wipe 4.5s ease-in-out infinite;
+        }
+
+        /* stagger wipe per row */
+        .skills-track:nth-child(1) span::after {
+            animation-delay: calc(var(--i, 1) * 0.2s);
+        }
+
+        .skills-track:nth-child(2) span::after {
+            animation-delay: calc(var(--i, 1) * 0.35s);
+        }
+
+
+
+        /* animations */
+        @keyframes scrollSkills {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes wipe {
+            0% {
+                transform: translateX(-150%);
+                opacity: 0;
+            }
+
+            30% {
+                opacity: 1;
+            }
+
+            60% {
+                transform: translateX(250%);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(250%);
+                opacity: 0;
+            }
+        }
+
+
+
+
+
+        /* --- CERTIFICATE CONTENT STYLES --- */
+        /* Note: We are using the existing .bento-card for the container */
+        
+        .cert-inner {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: space-between;
+        }
+
+        .cert-issuer {
+            font-family: 'Major Mono Display', monospace;
+            color: var(--text-dim);
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: -10px; /* Pull closer to title */
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .cert-footer {
+            border-top: 1px solid var(--border);
+            padding-top: 20px;
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cert-date {
+            font-size: 0.75rem;
+            color: #555;
+            letter-spacing: 0.05em;
+        }
+
+        .verify-link {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #fff;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: 0.3s ease;
+        }
+
+        /* The link hover effect */
+        .verify-link:hover {
+            color: var(--accent-blue);
+            gap: 12px; /* Moves the arrow */
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <span class="material-symbols-outlined" style="font-size:32px; vertical-align: middle;">brand_family</span>
+        &nbsp&nbsp|
+        <div class="nav-center">
+            <a href="#projects">projects</a>
+            <a href="#academic">Academics</a>
+            <a href="#certificates">certificates</a>
+        </div>
+        <a href="mailto:whyamanbhardwaj@gmail.com" class="contact-btn">Contact</a>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>AmAn<br>bHaRdWaj</h1>
+            <p>Developing scalable intelligent systems with a focus on Retrieval-Augmented Generation (RAG) and Neural
+                Architectures.</p>
+        </div>
+        <div class="hero-visual">
+            <div class="hidden-img"></div>
+            <canvas id="revealCanvas"></canvas>
+        </div>
+    </header>
+
+    <section class="section" id="skills">
+        <h2 class="section-header">01 <span>/ CORE SKILLS</span></h2>
+
+        <div class="skills-wrapper">
+            <div class="skills-track">
+                <span>Python</span>
+                <span>Machine Learning</span>
+                <span>Deep Learning</span>
+                <span>RAG Systems</span>
+                <span>LLMs</span>
+                <span>PyTorch</span>
+                <span>TensorFlow</span>
+                <span>LangChain</span>
+                <span>Vector Databases</span>
+                <span>Computer Vision</span>
+                <span>NLP</span>
+                <span>Data Structures</span>
+                <span>Algorithms</span>
+                <span>API Design</span>
+                <span>System Architecture</span>
+            </div>
+
+            <!-- duplicate for seamless loop -->
+            <div class="skills-track">
+                <span>Python</span>
+                <span>Machine Learning</span>
+                <span>Deep Learning</span>
+                <span>RAG Systems</span>
+                <span>LLMs</span>
+                <span>PyTorch</span>
+                <span>TensorFlow</span>
+                <span>LangChain</span>
+                <span>Vector Databases</span>
+                <span>Computer Vision</span>
+                <span>NLP</span>
+                <span>Data Structures</span>
+                <span>Algorithms</span>
+                <span>API Design</span>
+                <span>System Architecture</span>
+            </div>
+        </div>
+    </section>
+    <section class="section" id="academic">
+        <h2 class="section-header">02 <span>/ ACADEMIC PROFILE</span></h2>
+        <div class="bento-grid">
+            <div class="bento-card span-8">
+                <h3>MITS Gwalior</h3>
+                <p>Bachelor of Technology in Artificial Intelligence & Data Science. Sustaining a cumulative grade point
+                    average of 9.26.</p>
+            </div>
+            <div class="bento-card span-4" style="background: linear-gradient(45deg, #111, #000);">
+                <h3>Honors</h3>
+                <p>92.4% in Higher Secondary Education from The Radiant School.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="projects">
+        <h2 class="section-header">03 <span>/ FEATURED PROJECTS</span></h2>
+        <div class="bento-grid">
+            <div class="bento-card span-4">
+                <h3>RAG Assistant</h3>
+                <p>Scalable NLP system processing 30 years of arXiv AI literature.</p>
+            </div>
+            <div class="bento-card span-8">
+                <h3>Phytopathology Framework</h3>
+                <p>Two-stage deep learning architecture using MobileNet for precision crop disease classification.</p>
+            </div>
+            <div class="bento-card span-8">
+                <h3>PixelVault</h3>
+                <p>Web-integrated steganography utility for secure, metadata-driven data concealment.</p>
+            </div>
+            <div class="bento-card span-4">
+                <h3>Voice Control</h3>
+                <p>Real-time audio signal processing for automated volume modulation.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="leadership">
+        <h2 class="section-header">04 <span>/ ACADEMIC SERVICE & LEADERSHIP</span></h2>
+        <div class="leadership-list">
+            <div class="leader-item">
+                <h4>Board of Studies Coordinator</h4>
+                <p>Representing the AI&DS department in curriculum architecture and planning for 2024-2025.</p>
+            </div>
+            <div class="leader-item">
+                <h4>Competitive Programming Lead</h4>
+                <p>Coordinating coding initiatives and technical development for the AI&DS '27 batch.</p>
+            </div>
+            <div class="leader-item">
+                <h4>Academic Research</h4>
+                <p>Active collaboration with faculty on manuscript preparation and problem formulation for research
+                    papers.</p>
+            </div>
+            <div class="leader-item">
+                <h4>Institutional Compliance</h4>
+                <p>Serving as a member of the Anti-Ragging Committee to ensure student safety.</p>
+            </div>
+        </div>
+    </section>
+
+<section class="section" id="certificates">
+        <h2 class="section-header">05 <span>/ PROFESSIONAL CERTIFICATES</span></h2>
+        
+        <div class="bento-grid">
+            
+            <div class="bento-card span-8">
+                <div class="cert-inner">
+                    <div>
+                        <h3>Foundation in Data Science</h3>
+                        <span class="cert-issuer">iit mAdRas</span>
+                        <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 10px;">
+                            GPA: 9.13/10. Comprehensive specialization in data science foundations and application development.
+                        </p>
+                    </div>
+                    <div class="cert-footer">
+                        <span class="cert-date">VERIFIED</span>
+                        <a href="https://ds.study.iitm.ac.in/document_verification/d5b46596b8f9222f28198e3d505ae2f5f15b7c0c5dda0c016aa34b262409d620" target="_blank" class="verify-link">
+                            Verify <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bento-card span-4">
+                <div class="cert-inner">
+                    <div>
+                        <h3>Generative AI Essentials</h3>
+                        <span class="cert-issuer">micRosoft</span>
+                        <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 10px;">
+                            Career essentials in Generative AI.
+                        </p>
+                    </div>
+                    <div class="cert-footer">
+                        <span class="cert-date">VERIFIED</span>
+                        <a href="https://www.linkedin.com/learning/certificates/2480b5952af11904867df2e5484cd339cb8635d3eb3f7d5908df5a77e74fa243" target="_blank" class="verify-link">
+                            Verify <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bento-card span-4">
+                <div class="cert-inner">
+                    <div>
+                        <h3>Cognitive Robotics</h3>
+                        <span class="cert-issuer">nptel</span>
+                        <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 10px;">
+                            Score: 90%. Focus on AI agent systems.
+                        </p>
+                    </div>
+                    <div class="cert-footer">
+                        <span class="cert-date">VERIFIED</span>
+                        <a href="https://archive.nptel.ac.in/noc/Ecertificate/?q=NPTEL24ME82S33620014202618066" target="_blank" class="verify-link">
+                            Verify <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bento-card span-4">
+                <div class="cert-inner">
+                    <div>
+                        <h3>Ethical Hacking</h3>
+                        <span class="cert-issuer">nptel</span>
+                        <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 10px;">
+                            Score: 85%. Network security and pen-testing.
+                        </p>
+                    </div>
+                    <div class="cert-footer">
+                        <span class="cert-date">VERIFIED</span>
+                        <a href="https://nptel.ac.in/noc/E_Certificate/NPTEL25CS142S95760033010987802" target="_blank" class="verify-link">
+                            Verify <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bento-card span-4">
+                <div class="cert-inner">
+                    <div>
+                        <h3>Cyber Security & Privacy</h3>
+                        <span class="cert-issuer">nptel</span>
+                        <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 10px;">
+                            Score: 83%. Privacy compliance and defense.
+                        </p>
+                    </div>
+                    <div class="cert-footer">
+                        <span class="cert-date">VERIFIED</span>
+                        <a href="https://nptel.ac.in/noc/E_Certificate/NPTEL25CS116S55760021610987802" target="_blank" class="verify-link">
+                            Verify <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <footer>
+        <div class="footer-waves"></div>
+
+        <div class="footer-content">
+            <!-- Location & Education -->
+            <div class="footer-col">
+                <h5>LOCATION / ADDRESS</h5>
+                <p style="color: var(--text-dim); font-size: 0.85rem;">
+                    Gwalior,<br> Madhya Pradesh, India
+                </p>
+            </div>
+
+            <!-- Professional Profiles -->
+            <div class="footer-col">
+                <h5>PROFESSIONAL PROFILES</h5>
+                <ul class="footer-links">
+                    <li>
+                        <a href="https://github.com/GitHub-AmanBhardwaj" target="_blank">
+                            <i class="fab fa-github fa-fw"></i> GitHub
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://leetcode.com/whyamanbhardwaj" target="_blank">
+                            <i class="fas fa-code fa-fw"></i> LeetCode
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://huggingface.co/whyamanbhardwaj" target="_blank">
+                            <i class="fas fa-brain fa-fw"></i> Hugging Face
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Social & Contact -->
+            <div class="footer-col">
+                <h5>SOCIAL & CONTACT</h5>
+                <ul class="footer-links">
+                    <li>
+                        <a href="https://linkedin.com/in/whyamanbhardwaj" target="_blank">
+                            <i class="fab fa-linkedin fa-fw"></i> LinkedIn
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://instagram.com/whyamanbhardwaj" target="_blank">
+                            <i class="fab fa-instagram fa-fw"></i> Instagram
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://x.com/whyamanbhardwaj" target="_blank">
+                            <i class="fab fa-twitter fa-fw"></i> X (Twitter)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:whyamanbhardwaj@gmail.com">
+                            <i class="fas fa-envelope fa-fw"></i> Email
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="margin-top: 80px; opacity: 0.3; font-size: 0.65rem; letter-spacing: 1.5px;">
+            © 2026 Aman Bhardwaj. All rights reserved.
+        </div>
+    </footer>
+
+    </footer>
+
+    <script>
+        const canvas = document.getElementById('revealCanvas');
+        const ctx = canvas.getContext('2d');
+        const container = canvas.parentElement;
+        let isDrawing = false;
+
+        function initCanvas() {
+            canvas.width = container.offsetWidth;
+            canvas.height = container.offsetHeight;
+            ctx.fillStyle = '#000000';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+
+        function spray(e) {
+            const rect = canvas.getBoundingClientRect();
+            const mouseX = (e.clientX || e.touches[0].clientX) - rect.left;
+            const mouseY = (e.clientY || e.touches[0].clientY) - rect.top;
+
+            ctx.globalCompositeOperation = 'destination-out';
+
+            // --- SETTINGS ---
+            const pixelSize = 15; // The size of individual square blocks (try 10 to 25)
+            const brushRadius = 4; // How many blocks outwards from center to calculate (try 2 to 6)
+            // ----------------
+
+            // Calculate the grid coordinates of the mouse cursor
+            const centerGridX = Math.floor(mouseX / pixelSize);
+            const centerGridY = Math.floor(mouseY / pixelSize);
+
+            // Loop through a grid neighborhood around the center cursor
+            for (let i = -brushRadius; i <= brushRadius; i++) {
+                for (let j = -brushRadius; j <= brushRadius; j++) {
+
+                    // Calculate distance of this specific block from center block (pythagorean)
+                    const distanceFromCenter = Math.sqrt(i * i + j * j);
+
+                    // Create a probability 'gradient'.
+                    // Closer blocks have a higher chance (near 1.0) of being drawn.
+                    // Further blocks have lower chance.
+                    // Adding +1.5 buffers the edge so the very center isn't always solid box.
+                    let chanceToDraw = 1 - (distanceFromCenter / (brushRadius + 1.5));
+
+                    // Roll the dice based on the chance calculation
+                    if (Math.random() < chanceToDraw && chanceToDraw > 0) {
+                        // Determine actual canvas coordinates for this block, snapped to grid
+                        const drawX = (centerGridX + i) * pixelSize;
+                        const drawY = (centerGridY + j) * pixelSize;
+
+                        // Draw the pixel block
+                        // Using fillRect instead of arc for boxes
+                        ctx.fillRect(drawX, drawY, pixelSize - 1, pixelSize - 1);
+                        // Note: I used pixelSize - 1 to leave a tiny 1px gap between blocks for extra pixelated feel. 
+                        // Change back to just 'pixelSize' if you want solid clumps.
+                    }
+                }
+            }
+        }
+
+        // Event Listeners
+        window.addEventListener('load', initCanvas);
+        window.addEventListener('resize', initCanvas);
+
+        canvas.addEventListener('mousemove', spray);
+        canvas.addEventListener('touchmove', (e) => {
+            e.preventDefault();
+            spray(e);
+        }, { passive: false });
+
+        // Intersection Observer for section reveals
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(40px)';
+            section.style.transition = 'all 0.8s cubic-bezier(0.23, 1, 0.32, 1)';
+            observer.observe(section);
+        });
+    </script>
+</body>
+
+</html>
