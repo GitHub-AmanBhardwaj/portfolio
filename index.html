@@ -23,11 +23,11 @@
             --accent-pink: #ff0055;
             --border: rgba(255, 255, 255, 0.08);
         }
-        
+
         body::-webkit-scrollbar {
             display: none;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
@@ -316,29 +316,6 @@
             color: var(--accent-blue);
         }
 
-        @media (max-width: 1000px) {
-            .hero {
-                flex-direction: column;
-                height: auto;
-                padding: 160px 5% 80px;
-            }
-
-            .hero-content {
-                width: 100%;
-                margin-bottom: 60px;
-            }
-
-            .hero-visual {
-                position: relative;
-                width: 100%;
-                height: 450px;
-            }
-
-            .span-8,
-            .span-4 {
-                grid-column: span 12;
-            }
-        }
 
         .skills-wrapper {
             position: relative;
@@ -381,7 +358,7 @@
 
 
         .skills-track:nth-child(2) {
-            animation-duration: 10s;
+            animation-duration: 20s;
         }
 
         .skills-track span {
@@ -506,6 +483,58 @@
             color: var(--accent-blue);
             gap: 12px;
         }
+
+        @media (max-width: 1000px) {
+            nav {
+                padding: 20px 5%;
+                background: rgba(0, 0, 0, 0.3);
+            }
+
+            .nav-center {
+                display: none;
+            }
+
+            .hero {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                height: 100vh;
+                padding: 0 5%;
+                position: relative;
+            }
+
+            .hero-content {
+                width: 100%;
+                margin-bottom: 0;
+                text-align: center;
+                z-index: 10;
+                position: relative;
+
+                text-shadow: 0 4px 20px rgba(0, 0, 0, 1);
+            }
+
+            .hero-content h1 {
+                font-size: 40px;
+            }
+
+            .hero-visual {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+            }
+
+            .span-8,
+            .span-4 {
+                grid-column: span 12;
+            }
+
+            .section-header {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 
@@ -513,7 +542,6 @@
 
     <nav>
         <span class="material-symbols-outlined" style="font-size:32px; vertical-align: middle;">brand_family</span>
-        &nbsp&nbsp|
         <div class="nav-center">
             <a href="#projects">projects</a>
             <a href="#academic">Academics</a>
@@ -525,7 +553,8 @@
     <header class="hero">
         <div class="hero-content">
             <h1>AmAn<br>bHaRdWaj</h1>
-            <p>Developing scalable intelligent systems with a focus on Large Language Models and Neural Network Architectures.</p>
+            <p>Developing scalable intelligent systems with a focus on Large Language Models and Neural Network
+                Architectures.</p>
         </div>
         <div class="hero-visual">
             <div class="hidden-img"></div>
@@ -539,13 +568,29 @@
         <div class="skills-wrapper">
             <div class="skills-track">
                 <span>Python</span>
+                <span>C++</span>
                 <span>Machine Learning</span>
                 <span>Deep Learning</span>
                 <span>RAG Systems</span>
                 <span>LLMs</span>
                 <span>RNNs</span>
                 <span>TensorFlow</span>
-                <span>LangChain</span>
+                <span>Vector Databases</span>
+                <span>Computer Vision</span>
+                <span>NLP</span>
+                <span>Data Structures</span>
+                <span>Algorithms</span>
+                <span>LSTMs</span>
+                <span>Transformer Architecture</span>
+
+                <span>Python</span>
+                <span>C++</span>
+                <span>Machine Learning</span>
+                <span>Deep Learning</span>
+                <span>RAG Systems</span>
+                <span>LLMs</span>
+                <span>RNNs</span>
+                <span>TensorFlow</span>
                 <span>Vector Databases</span>
                 <span>Computer Vision</span>
                 <span>NLP</span>
@@ -557,13 +602,29 @@
 
             <div class="skills-track">
                 <span>Python</span>
+                <span>C++</span>
                 <span>Machine Learning</span>
                 <span>Deep Learning</span>
                 <span>RAG Systems</span>
                 <span>LLMs</span>
                 <span>RNNs</span>
                 <span>TensorFlow</span>
-                <span>LangChain</span>
+                <span>Vector Databases</span>
+                <span>Computer Vision</span>
+                <span>NLP</span>
+                <span>Data Structures</span>
+                <span>Algorithms</span>
+                <span>LSTMs</span>
+                <span>Transformer Architecture</span>
+
+                <span>Python</span>
+                <span>C++</span>
+                <span>Machine Learning</span>
+                <span>Deep Learning</span>
+                <span>RAG Systems</span>
+                <span>LLMs</span>
+                <span>RNNs</span>
+                <span>TensorFlow</span>
                 <span>Vector Databases</span>
                 <span>Computer Vision</span>
                 <span>NLP</span>
@@ -576,9 +637,9 @@
     </section>
     <section class="section" id="academic">
         <h2 class="section-header">02 <span>/ ACADEMIC PROFILE</span></h2>
-        
+
         <div class="bento-grid">
-            
+
             <div class="bento-card span-8">
                 <div class="cert-inner">
                     <div>
@@ -617,22 +678,32 @@
     <section class="section" id="projects">
         <h2 class="section-header">03 <span>/ FEATURED PROJECTS</span></h2>
         <div class="bento-grid">
-            <div class="bento-card span-4">
-                <h3>RAG Assistant</h3>
-                <p>Scalable NLP system processing 30 years of arXiv AI literature.</p>
-            </div>
-            <div class="bento-card span-8">
+            <a href="https://github.com/GitHub-AmanBhardwaj/Scholarly-Epistemic-Engine" class="bento-card span-8"
+                target="_blank" rel="noopener noreferrer">
+                <h3>Local Research Assistant</h3>
+                <p>scalable research assistant that processes and semantically vectorizes 30 years of arXiv AI
+                    literature into a large-scale knowledge base, enabling domain-specific reasoning through a locally
+                    deployed large language model.</p>
+            </a>
+
+            <a href="https://github.com/GitHub-AmanBhardwaj/Crop-Disease-detection" class="bento-card span-4"
+                target="_blank" rel="noopener noreferrer">
                 <h3>Phytopathology Framework</h3>
-                <p>Two-stage deep learning architecture using MobileNet for precision crop disease classification.</p>
-            </div>
-            <div class="bento-card span-8">
+                <p>Two-stage deep learning architecture using MobileNet & EfficientNet for precise phytopathology.</p>
+            </a>
+
+            <a href="https://github.com/GitHub-AmanBhardwaj/PixelVault-Steganographer" class="bento-card span-4"
+                target="_blank" rel="noopener noreferrer">
                 <h3>PixelVault</h3>
-                <p>Web-integrated steganography utility for secure, metadata-driven data concealment.</p>
-            </div>
-            <div class="bento-card span-4">
-                <h3>Voice Control</h3>
-                <p>Real-time audio signal processing for automated volume modulation.</p>
-            </div>
+                <p>Web-integrated steganography utility for secure, metadata and pixel based data concealment.</p>
+            </a>
+
+            <a href="https://github.com/GitHub-AmanBhardwaj/Voice-Based-Volume-Controller" class="bento-card span-8"
+                target="_blank" rel="noopener noreferrer">
+                <h3>Voice Assisted Volume Controller</h3>
+                <p>Python utility that controls system volume using voice commands, integrating speech recognition with
+                    the Windows Core Audio API.</p>
+            </a>
         </div>
     </section>
 
@@ -649,8 +720,7 @@
             </div>
             <div class="leader-item">
                 <h4>Academic Research</h4>
-                <p>Active collaboration with faculty on manuscript preparation and problem formulation for research
-                    papers.</p>
+                <p>Active collaboration with faculty on manuscript preparation and experimentation for research papers.</p>
             </div>
             <div class="leader-item">
                 <h4>Institutional Compliance</h4>
@@ -659,23 +729,25 @@
         </div>
     </section>
 
-<section class="section" id="certificates">
+    <section class="section" id="certificates">
         <h2 class="section-header">05 <span>/ PROFESSIONAL CERTIFICATES</span></h2>
-        
+
         <div class="bento-grid">
-            
+
             <div class="bento-card span-8">
                 <div class="cert-inner">
                     <div>
                         <h3>Foundation in Data Science</h3>
                         <span class="cert-issuer">iit mAdRas</span>
                         <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 10px;">
-                            GPA: 9.13/10. Comprehensive specialization in data science foundations and application development.
+                            GPA: 9.13/10. Comprehensive specialization in data science foundations and application
+                            development.
                         </p>
                     </div>
                     <div class="cert-footer">
                         <span class="cert-date">VERIFIED</span>
-                        <a href="https://ds.study.iitm.ac.in/document_verification/d5b46596b8f9222f28198e3d505ae2f5f15b7c0c5dda0c016aa34b262409d620" target="_blank" class="verify-link">
+                        <a href="https://ds.study.iitm.ac.in/document_verification/d5b46596b8f9222f28198e3d505ae2f5f15b7c0c5dda0c016aa34b262409d620"
+                            target="_blank" class="verify-link">
                             Verify <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -693,7 +765,8 @@
                     </div>
                     <div class="cert-footer">
                         <span class="cert-date">VERIFIED</span>
-                        <a href="https://www.linkedin.com/learning/certificates/2480b5952af11904867df2e5484cd339cb8635d3eb3f7d5908df5a77e74fa243" target="_blank" class="verify-link">
+                        <a href="https://www.linkedin.com/learning/certificates/2480b5952af11904867df2e5484cd339cb8635d3eb3f7d5908df5a77e74fa243"
+                            target="_blank" class="verify-link">
                             Verify <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -711,7 +784,8 @@
                     </div>
                     <div class="cert-footer">
                         <span class="cert-date">VERIFIED</span>
-                        <a href="https://archive.nptel.ac.in/noc/Ecertificate/?q=NPTEL24ME82S33620014202618066" target="_blank" class="verify-link">
+                        <a href="https://archive.nptel.ac.in/noc/Ecertificate/?q=NPTEL24ME82S33620014202618066"
+                            target="_blank" class="verify-link">
                             Verify <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -729,7 +803,8 @@
                     </div>
                     <div class="cert-footer">
                         <span class="cert-date">VERIFIED</span>
-                        <a href="https://nptel.ac.in/noc/E_Certificate/NPTEL25CS142S95760033010987802" target="_blank" class="verify-link">
+                        <a href="https://nptel.ac.in/noc/E_Certificate/NPTEL25CS142S95760033010987802" target="_blank"
+                            class="verify-link">
                             Verify <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -747,7 +822,8 @@
                     </div>
                     <div class="cert-footer">
                         <span class="cert-date">VERIFIED</span>
-                        <a href="https://nptel.ac.in/noc/E_Certificate/NPTEL25CS116S55760021610987802" target="_blank" class="verify-link">
+                        <a href="https://nptel.ac.in/noc/E_Certificate/NPTEL25CS116S55760021610987802" target="_blank"
+                            class="verify-link">
                             Verify <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -900,5 +976,3 @@
 </body>
 
 </html>
-
-
