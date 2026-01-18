@@ -63,7 +63,6 @@
             transition: 0.3s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
-        /* --- THIN TRANSPARENT NAV --- */
         nav {
             position: fixed;
             top: 0;
@@ -108,7 +107,6 @@
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
         }
 
-        /* --- HERO: SPRAY REVEAL --- */
         .hero {
             height: 100vh;
             display: flex;
@@ -139,19 +137,14 @@
             z-index: 5;
         }
 
-        /* Find this part in your CSS and update it */
         #revealCanvas {
             position: absolute;
-            /* Added */
             top: 0;
-            /* Added */
             left: 0;
-            /* Added */
             width: 100%;
             height: 100%;
             cursor: crosshair;
             z-index: 2;
-            /* Added: Must be higher than .hidden-img (which is 1) */
         }
 
         .hidden-img {
@@ -161,17 +154,13 @@
             width: 100%;
             height: 100%;
 
-            /* Change 'center' to 'center 10%' to pull the image down slightly */
-            /* This ensures the top of the head is visible while maintaining the cover effect */
             background: url('aman.png') no-repeat center 10% / cover;
 
             z-index: 1;
 
-            /* Optional: Adds a subtle vignette so the edges blend into the black background */
             box-shadow: inset 0 0 100px #000;
         }
 
-        /* --- SECTIONS --- */
         .section {
             padding: 80px 5%;
             border-top: 1px solid var(--border);
@@ -188,7 +177,6 @@
             font-weight: 300;
         }
 
-        /* --- BENTO PROJECT GRID --- */
         .bento-grid {
             display: grid;
             grid-template-columns: repeat(12, 1fr);
@@ -230,7 +218,6 @@
             grid-column: span 12;
         }
 
-        /* --- LEADERSHIP & IMPACT --- */
         .leadership-list {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -258,7 +245,6 @@
             color: var(--text-dim);
         }
 
-        /* --- VIBRANT AURORA FOOTER --- */
         footer {
             position: relative;
             padding: 100px 5% 60px;
@@ -267,7 +253,6 @@
             background: #020202;
         }
 
-        /* --- VIBRANT SOUNDWAVE FOOTER --- */
         footer {
             position: relative;
             padding: 80px 5% 40px;
@@ -327,7 +312,6 @@
             color: var(--accent-blue);
         }
 
-        /* --- MOBILE ADAPTATION --- */
         @media (max-width: 1000px) {
             .hero {
                 flex-direction: column;
@@ -352,9 +336,6 @@
             }
         }
 
-
-
-        /* --- ANIMATED SKILLS MARQUEE (OFFSET + REFLECTION) --- */
         .skills-wrapper {
             position: relative;
             overflow: hidden;
@@ -364,10 +345,8 @@
             display: flex;
             flex-direction: column;
             gap: 28px;
-            /* gap between rows */
         }
 
-        /* edge fade */
         .skills-wrapper::before,
         .skills-wrapper::after {
             content: "";
@@ -389,7 +368,6 @@
             background: linear-gradient(to left, var(--bg), transparent);
         }
 
-        /* rows */
         .skills-track {
             display: flex;
             gap: 22px;
@@ -397,19 +375,11 @@
             animation: scrollSkills 38s linear infinite;
         }
 
-        /* offset rows */
-        /* .skills-track:nth-child(1) {
-    transform: translateX(0);
-} */
 
         .skills-track:nth-child(2) {
             animation-duration: 10s;
-            /* slight speed difference */
         }
 
-
-
-        /* skill pill */
         .skills-track span {
             position: relative;
             padding: 14px 30px;
@@ -418,21 +388,18 @@
             border: 1px solid var(--border);
             font-size: 0.8rem;
             letter-spacing: 0.08em;
-            text-transform: uppercase;
             color: #fff;
             white-space: nowrap;
             overflow: hidden;
             transition: 0.35s ease;
         }
 
-        /* hover highlight */
         .skills-track span:hover {
             color: var(--accent-blue);
             border-color: var(--accent-blue);
             transform: scale(1.08);
         }
 
-        /* --- REFLECTION / LIGHT WIPE --- */
         .skills-track span::after {
             content: "";
             position: absolute;
@@ -448,7 +415,6 @@
             animation: wipe 4.5s ease-in-out infinite;
         }
 
-        /* stagger wipe per row */
         .skills-track:nth-child(1) span::after {
             animation-delay: calc(var(--i, 1) * 0.2s);
         }
@@ -457,9 +423,6 @@
             animation-delay: calc(var(--i, 1) * 0.35s);
         }
 
-
-
-        /* animations */
         @keyframes scrollSkills {
             from {
                 transform: translateX(0);
@@ -491,13 +454,6 @@
             }
         }
 
-
-
-
-
-        /* --- CERTIFICATE CONTENT STYLES --- */
-        /* Note: We are using the existing .bento-card for the container */
-        
         .cert-inner {
             display: flex;
             flex-direction: column;
@@ -510,7 +466,7 @@
             color: var(--text-dim);
             font-size: 0.8rem;
             font-weight: 600;
-            margin-top: -10px; /* Pull closer to title */
+            margin-top: -10px;
             margin-bottom: 25px;
             display: block;
         }
@@ -542,10 +498,9 @@
             transition: 0.3s ease;
         }
 
-        /* The link hover effect */
         .verify-link:hover {
             color: var(--accent-blue);
-            gap: 12px; /* Moves the arrow */
+            gap: 12px;
         }
     </style>
 </head>
@@ -566,8 +521,7 @@
     <header class="hero">
         <div class="hero-content">
             <h1>AmAn<br>bHaRdWaj</h1>
-            <p>Developing scalable intelligent systems with a focus on Retrieval-Augmented Generation (RAG) and Neural
-                Architectures.</p>
+            <p>Developing scalable intelligent systems with a focus on Large Language Models and Neural Network Architectures.</p>
         </div>
         <div class="hero-visual">
             <div class="hidden-img"></div>
@@ -585,7 +539,7 @@
                 <span>Deep Learning</span>
                 <span>RAG Systems</span>
                 <span>LLMs</span>
-                <span>PyTorch</span>
+                <span>RNNs</span>
                 <span>TensorFlow</span>
                 <span>LangChain</span>
                 <span>Vector Databases</span>
@@ -593,18 +547,17 @@
                 <span>NLP</span>
                 <span>Data Structures</span>
                 <span>Algorithms</span>
-                <span>API Design</span>
-                <span>System Architecture</span>
+                <span>LSTMs</span>
+                <span>Transformer Architecture</span>
             </div>
 
-            <!-- duplicate for seamless loop -->
             <div class="skills-track">
                 <span>Python</span>
                 <span>Machine Learning</span>
                 <span>Deep Learning</span>
                 <span>RAG Systems</span>
                 <span>LLMs</span>
-                <span>PyTorch</span>
+                <span>RNNs</span>
                 <span>TensorFlow</span>
                 <span>LangChain</span>
                 <span>Vector Databases</span>
@@ -612,23 +565,48 @@
                 <span>NLP</span>
                 <span>Data Structures</span>
                 <span>Algorithms</span>
-                <span>API Design</span>
-                <span>System Architecture</span>
+                <span>LSTMs</span>
+                <span>Transformer Architecture</span>
             </div>
         </div>
     </section>
     <section class="section" id="academic">
         <h2 class="section-header">02 <span>/ ACADEMIC PROFILE</span></h2>
+        
         <div class="bento-grid">
+            
             <div class="bento-card span-8">
-                <h3>MITS Gwalior</h3>
-                <p>Bachelor of Technology in Artificial Intelligence & Data Science. Sustaining a cumulative grade point
-                    average of 9.26.</p>
+                <div class="cert-inner">
+                    <div>
+                        <h3>B.Tech in AI & Data Science</h3>
+                        <span class="cert-issuer">mAdhAv institute of technology & scence</span>
+                        <p style="color: var(--text-dim); margin-top: 10px; font-size: 0.95rem;">
+                            Current CGPA: <strong style="color: #fff;">9.26</strong><br>
+                            Specializing in Deep Learning architectures and scalable intelligent systems.
+                        </p>
+                    </div>
+                    <div class="cert-footer">
+                        <span class="cert-date">GWALIOR • 2023 — 2027</span>
+                    </div>
+                </div>
             </div>
-            <div class="bento-card span-4" style="background: linear-gradient(45deg, #111, #000);">
-                <h3>Honors</h3>
-                <p>92.4% in Higher Secondary Education from The Radiant School.</p>
+
+            <div class="bento-card span-4">
+                <div class="cert-inner">
+                    <div>
+                        <h3>Higher Secondary</h3>
+                        <span class="cert-issuer">the RAdiAnt school</span>
+                        <p style="color: var(--text-dim); margin-top: 10px; font-size: 0.95rem;">
+                            Score: <strong style="color: #fff;">92.4%</strong><br>
+                            PCM + Informatics Practices
+                        </p>
+                    </div>
+                    <div class="cert-footer">
+                        <span class="cert-date">2022 — 2023</span>
+                    </div>
+                </div>
             </div>
+
         </div>
     </section>
 
@@ -785,7 +763,6 @@
         <div class="footer-waves"></div>
 
         <div class="footer-content">
-            <!-- Location & Education -->
             <div class="footer-col">
                 <h5>LOCATION / ADDRESS</h5>
                 <p style="color: var(--text-dim); font-size: 0.85rem;">
@@ -793,7 +770,6 @@
                 </p>
             </div>
 
-            <!-- Professional Profiles -->
             <div class="footer-col">
                 <h5>PROFESSIONAL PROFILES</h5>
                 <ul class="footer-links">
@@ -815,7 +791,6 @@
                 </ul>
             </div>
 
-            <!-- Social & Contact -->
             <div class="footer-col">
                 <h5>SOCIAL & CONTACT</h5>
                 <ul class="footer-links">
@@ -870,45 +845,29 @@
 
             ctx.globalCompositeOperation = 'destination-out';
 
-            // --- SETTINGS ---
-            const pixelSize = 15; // The size of individual square blocks (try 10 to 25)
-            const brushRadius = 4; // How many blocks outwards from center to calculate (try 2 to 6)
-            // ----------------
+            const pixelSize = 15;
+            const brushRadius = 4;
 
-            // Calculate the grid coordinates of the mouse cursor
             const centerGridX = Math.floor(mouseX / pixelSize);
             const centerGridY = Math.floor(mouseY / pixelSize);
 
-            // Loop through a grid neighborhood around the center cursor
             for (let i = -brushRadius; i <= brushRadius; i++) {
                 for (let j = -brushRadius; j <= brushRadius; j++) {
 
-                    // Calculate distance of this specific block from center block (pythagorean)
                     const distanceFromCenter = Math.sqrt(i * i + j * j);
 
-                    // Create a probability 'gradient'.
-                    // Closer blocks have a higher chance (near 1.0) of being drawn.
-                    // Further blocks have lower chance.
-                    // Adding +1.5 buffers the edge so the very center isn't always solid box.
                     let chanceToDraw = 1 - (distanceFromCenter / (brushRadius + 1.5));
 
-                    // Roll the dice based on the chance calculation
                     if (Math.random() < chanceToDraw && chanceToDraw > 0) {
-                        // Determine actual canvas coordinates for this block, snapped to grid
                         const drawX = (centerGridX + i) * pixelSize;
                         const drawY = (centerGridY + j) * pixelSize;
 
-                        // Draw the pixel block
-                        // Using fillRect instead of arc for boxes
                         ctx.fillRect(drawX, drawY, pixelSize - 1, pixelSize - 1);
-                        // Note: I used pixelSize - 1 to leave a tiny 1px gap between blocks for extra pixelated feel. 
-                        // Change back to just 'pixelSize' if you want solid clumps.
                     }
                 }
             }
         }
 
-        // Event Listeners
         window.addEventListener('load', initCanvas);
         window.addEventListener('resize', initCanvas);
 
@@ -918,7 +877,6 @@
             spray(e);
         }, { passive: false });
 
-        // Intersection Observer for section reveals
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
