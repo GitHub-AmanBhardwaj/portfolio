@@ -485,7 +485,7 @@
         }
         .scroll-indicator {
             position: absolute;
-            bottom: 40px;
+            bottom: 50px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 20;
@@ -538,6 +538,7 @@
             .hero-content p {
                 margin: 20px auto 0; 
                 max-width: 400px;
+                font-size: 90%;
             }
 
             .hero-content h1 {
@@ -572,7 +573,7 @@
 <body>
 
     <nav>
-        <a href="/"<span class="material-symbols-outlined" style="font-size:32px; vertical-align: middle;">brand_family</span></a>
+        <span class="material-symbols-outlined" style="font-size:32px; vertical-align: middle;">brand_family</span>
         <div class="nav-center">
             <a href="#projects">projects</a>
             <a href="#academic">Academics</a>
@@ -989,7 +990,7 @@
             }
         }
 
-        window.addEventListener('load', initCanvas);
+        window.addEventListener('DOMContentLoaded', initCanvas);
         window.addEventListener('resize', initCanvas);
 
         canvas.addEventListener('mousemove', spray);
@@ -1017,5 +1018,3 @@
 </body>
 
 </html>
-
-
